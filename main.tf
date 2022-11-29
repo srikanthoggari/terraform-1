@@ -57,8 +57,8 @@ resource "aws_instance" "web" {
               
               mkdir Snipe-IT
               cd Snipe-IT
-              git clone https://github.com/kesarivamshi/Snipe-IT.git
-              cd Snipe-IT
+              git clone https://github.com/kesarivamshi/Snipe-IT.git snipe-it
+              cd snipe-it
               sudo docker-compose up
               EOF
 }
