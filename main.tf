@@ -59,7 +59,7 @@ resource "aws_instance" "web" {
               cd Snipe-IT
               git clone https://github.com/kesarivamshi/Snipe-IT.git
               cd Snipe-IT
-              sed -i 's/44.211.144.174/${aws_instance.web.public_ip}/g' .env.docker
+              #sed -i 's/44.211.144.174/${aws_instance.web.public_ip}/g' .env.docker
               sudo docker-compose up
               EOF
 }
