@@ -69,8 +69,8 @@ resource "aws_security_group" "web-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    from_port   = "all"
-    to_port     = "all"
+    from_port   = all
+    to_port     = all
     protocol    = "all"
     cidr_blocks = ["0.0.0.0/0"]
   }
