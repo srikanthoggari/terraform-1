@@ -49,10 +49,11 @@ resource "aws_instance" "web" {
 
   user_data = <<-EOF
               #!/bin/bash
-              apt-get update
+              sudo apt-get update
               sudo apt install docker.io -y
               sudo apt install docker-compose -y
-              apt-get update -y
+              sudo apt-get update -y
+              sudo -i
               git clone https://github.com/kesarivamshi/Snipe-IT.git
               cd Snipe-IT
               sudo docker-compose up
