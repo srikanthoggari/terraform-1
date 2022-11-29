@@ -50,18 +50,20 @@ resource "aws_instance" "web" {
   user_data = <<-EOF
               #!/bin/bash
               apt-get update
-              apt-get install -y apache2
-              sed -i -e 's/80/8080/' /etc/apache2/ports.conf
-              echo "Hello World vamshi" > /var/www/html/index.html
-              systemctl restart apache2
+              sudo apt install docker.io -y
+              sudo apt install docker-compose -y
+              apt-get update -y
+              git clone https://github.com/kesarivamshi/Snipe-IT.git
+              cd Snipe-IT
+              sudo docker-compose up
               EOF
 }
 
 resource "aws_security_group" "web-sg" {
   name = "${random_pet.sg.id}-sg"
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = 8000
+    to_port     = 8000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
