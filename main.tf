@@ -54,9 +54,6 @@ resource "aws_instance" "web" {
               sudo apt install docker-compose -y
               
               echo
-              
-              mkdir Snipe-IT
-              cd Snipe-IT
               git clone https://github.com/kesarivamshi/Snipe-IT.git snipe-it
               cd snipe-it
               sudo docker-compose up
@@ -81,5 +78,5 @@ resource "aws_security_group" "web-sg" {
 }
 
 output "web-address" {
-  value = "${aws_instance.web.public_dns}:8000"
+  value = "${aws_instance.web.public_ip}:8000"
 }
