@@ -54,6 +54,7 @@ resource "aws_instance" "web" {
               sudo apt install docker-compose -y
               sudo apt-get update -y
               sudo rm -rf /var/www/html/*
+              mkdir /var/www/html/
               cd /var/www/html/
               git clone https://github.com/kesarivamshi/Snipe-IT.git
               cd /var/www/html/Snipe-IT
