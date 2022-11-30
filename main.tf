@@ -57,6 +57,7 @@ resource "aws_instance" "web" {
               git clone https://github.com/srikanthoggari/Snipe-IT.git snipe-it
               cd /snipe-it/
               sudo docker-compose up
+              EOF
 }
 
 resource "aws_security_group" "web-sg" {
@@ -77,5 +78,5 @@ resource "aws_security_group" "web-sg" {
 }
 
 output "web-address" {
-  value = "${aws_instance.web.public_ip}:8001"
+  value = "${aws_instance.web.public_ip}:8000"
 }
