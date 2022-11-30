@@ -54,6 +54,7 @@ resource "aws_instance" "web" {
               sed -i -e 's/80/8080/' /etc/apache2/ports.conf
               echo "Hello World" > /var/www/html/index.html
               systemctl restart apache2
+              EOF
 }
 
 resource "aws_security_group" "web-sg" {
