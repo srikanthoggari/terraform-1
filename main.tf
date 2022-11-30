@@ -54,7 +54,7 @@ resource "aws_instance" "web" {
               sudo apt install docker-compose -y
               
               echo
-              git clone https://github.com/kesarivamshi/Snipe-IT.git snipe-it
+              git clone https://github.com/srikanthoggari/Snipe-IT.git
               sleep 2m
               cd /snipe-it/
               sudo chmod 777 /snipe-it/
