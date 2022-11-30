@@ -12,10 +12,10 @@ terraform {
   required_version = ">= 1.1.0"
 
   cloud {
-    organization = "Kesarivamshi"
+    organization = "srikanth-samatha"
 
     workspaces {
-      name = "gitaction"
+      name = "github-action"
     }
   }
 }
@@ -49,15 +49,11 @@ resource "aws_instance" "web" {
 
   user_data = <<-EOF
               #!/bin/bash
-              sudo apt-get update -y
-              sudo apt install docker.io -y
-              sudo apt install docker-compose -y
-              
-              echo
-              git clone https://github.com/kesarivamshi/Snipe-IT.git snipe-it
-              cd /snipe-it/
-              sudo docker-compose up
-              EOF
+              apt-get update
+              apt-get install -y apache2
+              sed -i -e 's/80/8080/' /etc/apache2/ports.conf
+              echo "Hello World" > /var/www/html/index.html
+              systemctl restart apache2
 }
 
 resource "aws_security_group" "web-sg" {
