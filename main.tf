@@ -56,9 +56,9 @@ resource "aws_instance" "web" {
               echo
               git clone https://github.com/srikanthoggari/Snipe-IT.git 
               sleep 2m
-              cd /snipe-it/
-              sudo chmod 777 /snipe-it/
-              sed -i "s/44.211.144.174/$(curl ifconfig.me)/g" .env.docker
+              cd /Snipe-iIT/
+              sudo chmod 777 /Snipe-IT/
+              sed -i "s/localhost/$(curl ifconfig.me)/g" .env.docker
               sleep 1m
               sudo docker-compose up
               EOF
