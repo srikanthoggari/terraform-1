@@ -12,10 +12,10 @@ terraform {
   required_version = ">= 1.1.0"
 
   cloud {
-    organization = "srikanth-samatha"
+    organization = "srikanthsamatha"
 
     workspaces {
-      name = "github-action"
+      name = "githubaction"
     }
   }
 }
@@ -48,13 +48,13 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.web-sg.id]
 
   user_data = <<-EOF
-             #!/bin/bash
+              #!/bin/bash
               sudo apt-get update -y
               sudo apt install docker.io -y
               sudo apt install docker-compose -y
               
               echo
-              git clone https://github.com/srikanthoggari/Snipe-IT.git
+              git clone https://github.com/srikanthoggari/Snipe-IT.git 
               sleep 2m
               cd /snipe-it/
               sudo chmod 777 /snipe-it/
@@ -88,6 +88,5 @@ resource "aws_security_group" "web-sg" {
 }
 
 output "web-address" {
-  value = "${aws_instance.web.public_ip}:8001"
+  value = "${aws_instance.web.public_ip}:8000"
 }
-  
