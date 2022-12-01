@@ -88,6 +88,6 @@ resource "aws_security_group" "web-sg" {
 }
 
 output "web-address" {
-  value = "${aws_instance.web.public_ip}:8000"
+  value = "${aws_instance.web.public_ip}:8001"
 }
   
